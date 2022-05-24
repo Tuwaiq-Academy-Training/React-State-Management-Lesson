@@ -92,24 +92,27 @@ Redux
 - ثم نقوم باستعمال Provider لتزويد مكونات React بال store التي تم إنشائها سابقًا. يمكننا إتاحته لمكونات React الخاصة بنا عن طريق وضع Provider> React-Redux> حول تطبيقنا في `src/index.js` . قم بإستدعاء مخزن Redux الذي أنشأناه للتو ، وضع <Provider> حول <App> الخاص بك ، وقم بتمرير المخزن عن طريق خاصية store.
 
 
-    import React from "react";
-    import ReactDOM from "react-dom";
-    import "./index.css";
-    import App from "./App";
-    import { Provider } from "react-redux";
-    // 2. Import store from its folder location.
-    import store from "./reducers/store";
-    ReactDOM.render(
-      <React.StrictMode>
-        {/* 3. Use the Provider component ti wrap the App component and add the atrributte "store" the the oppenning 
-       tag and set it equal to the store value. */}
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </React.StrictMode>,
-      document.getElementById("root")
-    );
-    
+ 
+      import React from "react";
+      import ReactDOM from "react-dom";
+      import "./index.css";
+      import App from "./App";
+      import { Provider } from "react-redux";
+      // 2. Import store from its folder location.
+      import store from "./reducers/store";
+      ReactDOM.render(
+        <React.StrictMode>
+          {/* 3. Use the Provider component ti wrap the App component and add the atrributte "store" the the 
+         oppenning 
+         tag and set it equal to the store value. */}
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </React.StrictMode>,
+        document.getElementById("root")
+      );
+
+ 
 
 
 - الآن أصبح المخزن قابل للوصول من أي مكون، عن طريق إستخدام useSelector ثم نقوم بإختيار state الذي نريد الوصول إليه. ثم نقوم بإستدعاء الaction الذي بدوره سيقوم بتفعيل الreducer بواسطة دالة useDispatch.
