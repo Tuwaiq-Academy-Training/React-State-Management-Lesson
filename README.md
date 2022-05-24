@@ -69,23 +69,27 @@ Redux
 - بعد ذلك نقوم بانشاء ملف store.js في مجلد ال `src/reducers/store.js` reducer ونقوم بإنشاء مخزن عن طريق دالة createStore. يمثل store حاوية الـ Global states، والتي تسمح لبقية العناصر والمكونات بالوصول إليها مباشرة. تستقبل دالة createStore جميع الreducers. إذا كان هنالك أكثر من reducer يجب إستخدام دالة combineReducers قبل إنشاء المخزن وهي دالة تقوم بدمج الreducer التي تستقبلها دالة الدمج.
 
 
-    import { createStore, combineReducers } from "redux";
-    // 2. import the reducer from its file location.
-    import user from './user/user';
-     
-    // In case you have two reducer you have to use combineReducers
-    //import example-1 from "./example-1/example-1";
-    //import example-2 from "./example-2/example-2";
-    
-    // 3. Define a variable called "reducers", we will use to store all the reducer functions with the combineReducers method.
-    
-    //const reducers = combineReducers({ example-1, example-2 });
-    
-    // 4. Declare a variable called "store" and set it equal the method "createStore" and pass the reducers variable as a value as you invoque it.
-    //const store = createStore(reducers);
-    
-    const store = createStore(user);
-    export default store;
+
+      import { createStore, combineReducers } from "redux";
+      // 2. import the reducer from its file location.
+      import user from './user/user';
+
+      // In case you have two reducer you have to use combineReducers
+      //import example-1 from "./example-1/example-1";
+      //import example-2 from "./example-2/example-2";
+
+      // 3. Define a variable called "reducers", we will use to store all the reducer functions with the 
+      combineReducers method.
+
+      //const reducers = combineReducers({ example-1, example-2 });
+
+      // 4. Declare a variable called "store" and set it equal the method "createStore" and pass the reducers 
+      variable as a value as you invoque it.
+      //const store = createStore(reducers);
+
+      const store = createStore(user);
+      export default store;
+
 
  
 
