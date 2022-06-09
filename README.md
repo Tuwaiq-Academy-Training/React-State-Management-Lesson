@@ -1,5 +1,12 @@
 # React-State-Management-Lesson
 
+# سوف نتعلم في هذا الدرس :
+* مفهوم الـRedux
+*
+
+
+
+
 Redux
 
 ما هو Redux
