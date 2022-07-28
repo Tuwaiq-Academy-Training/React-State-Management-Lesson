@@ -35,7 +35,7 @@ Redux
 
 `src/reducers/user/user.js`
 
-
+```js
     // 1. Declare a variable under the name "initialState", that holds an object with a
     //key for the state name and an initial value, in this case " {user: ''} ". This will //be our initial container for our state, where all the information is going to 
     //be held up.
@@ -71,12 +71,13 @@ Redux
         }
     }
     export default user
+```
 
 
 - بعد ذلك نقوم بانشاء ملف store.js في مجلد ال `src/reducers/store.js` reducer ونقوم بإنشاء مخزن عن طريق دالة createStore. يمثل store حاوية الـ Global states، والتي تسمح لبقية العناصر والمكونات بالوصول إليها مباشرة. تستقبل دالة createStore جميع الreducers. إذا كان هنالك أكثر من reducer يجب إستخدام دالة combineReducers قبل إنشاء المخزن وهي دالة تقوم بدمج الreducer التي تستقبلها دالة الدمج.
 
 
-
+```js
       import { createStore, combineReducers } from "redux";
       // 2. import the reducer from its file location.
       import user from './user/user';
@@ -96,14 +97,14 @@ Redux
 
       const store = createStore(user);
       export default store;
-
+```
 
  
 
 - ثم نقوم باستعمال Provider لتزويد مكونات React بال store التي تم إنشائها سابقًا. يمكننا إتاحته لمكونات React الخاصة بنا عن طريق وضع Provider> React-Redux> حول تطبيقنا في `src/index.js` . قم بإستدعاء مخزن Redux الذي أنشأناه للتو ، وضع <Provider> حول <App> الخاص بك ، وقم بتمرير المخزن عن طريق خاصية store.
 
 
- 
+```js
       import React from "react";
       import ReactDOM from "react-dom";
       import "./index.css";
@@ -122,7 +123,7 @@ Redux
         </React.StrictMode>,
         document.getElementById("root")
       );
-
+```
  
 
 
@@ -130,6 +131,7 @@ Redux
     الآن نذهب إلى المكون الذي نريده أن يصل إلى المخزن ثم نقوم بإستدعاء  useSelector و useDispatch من مكتبة react-redux. ثم نقوم بإستدعاء الإجراء الذي قمنا بإنشائه. ثم نقوم بإنشاء useState لتحفظ فيها الحالة داخل المكون. ثم قم بإنشاء function من أجل أن تقوم بإستدعاء الaction وتمرير الحالة إلى الreducer.  
     
  
+ ```js
       import "./App.css";
       // 1. Import useDispatch, useSelector from react-redux.
       import { useDispatch, useSelector } from "react-redux";
@@ -172,5 +174,5 @@ Redux
         );
       }
       export default App;
-
+```
 
